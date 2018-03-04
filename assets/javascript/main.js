@@ -33,7 +33,7 @@ $(document).ready(function () {
         $('#gifs').empty();
 
         var name = $(this).text();
-        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + name + '&api_key=GMZR7cz1zr9lSowtZf1BSY3w78yDcm5f&limit=50';
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + name + '&api_key=GMZR7cz1zr9lSowtZf1BSY3w78yDcm5f&limit=50';
 
         // Get 50 gifs of selected show from giphy
         $.ajax({
