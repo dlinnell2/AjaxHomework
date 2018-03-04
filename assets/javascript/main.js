@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    var topics = ['the office', 'archer', 'community', 'rick and morty', 'south park', 'supernatural', 'episodes', 'batman the animated series', 'the mist', 'black mirror', 'always sunny in philidelphia', 'good place'];
+    var topics = ['the office', 'archer', 'community', 'rick and morty', 'south park', 'supernatural', 'episodes', 'batman the animated series', 'blue mountain state', 'black mirror', 'always sunny in philidelphia', 'good place'];
 
     function pageSet() {
         for (var i = 0; i < topics.length; i++) {
@@ -20,6 +20,9 @@ $(document).ready(function () {
     }
 
     function getGif() {
+
+        $('#gifs').empty();
+
         var name = $(this).text();
         var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + name + '&api_key=GMZR7cz1zr9lSowtZf1BSY3w78yDcm5f&limit=10';
 
@@ -27,7 +30,7 @@ $(document).ready(function () {
             url: queryURL,
             method: 'Get'
 
-            
+
         }).then(function(res){
 
             console.log(res);
@@ -35,9 +38,11 @@ $(document).ready(function () {
             for (var i = 0; i < res.data.length; i++){
                 var newDiv = $('<div>');
                 var image = $('<img>');
+                var text = $('<p>');
 
                 var activeImageSrc = res.data[i].images.fixed_height.url;
-                var stillImageSrc = res.data[i].images.fixed_height_still.url
+                var stillImageSrc = res.data[i].images.fixed_height_still.url;
+                var rating = res.data[i].rating;
 
                 image.attr({
                     src: stillImageSrc,
@@ -46,7 +51,9 @@ $(document).ready(function () {
                     'data-active': activeImageSrc,
                 });
 
-                newDiv.append(image);
+                text.text(rating);
+
+                newDiv.append(text, image);
                 newDiv.attr('class', 'd-inline');
                 $('#gifs').append(newDiv);
             }
