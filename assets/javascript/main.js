@@ -14,7 +14,7 @@ $(document).ready(function () {
         newButton.text(buttonName);
         newButton.attr({
             type: 'button',
-            class: 'btn btn-success',
+            class: 'btn btn-success movies',
         })
         $('#header').append(newButton);
     }
@@ -26,15 +26,35 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL,
             method: 'Get'
-        }).then(function(response){
-        console.log(name);
-        console.log(queryURL);
-        console.log(response);
+
+            
+        }).then(function(res){
+
+            console.log(res);
+
+            for (var i = 0; i < res.data.length; i++){
+                var newDiv = $('<div>');
+                var image = $('<img>');
+
+                var activeImageSrc = res.data[i].images.fixed_height.url;
+                var stillImageSrc = res.data[i].images.fixed_height_still.url
+
+                image.attr({
+                    src: stillImageSrc,
+                    class: 'gifs',
+                    'data-still': stillImageSrc,
+                    'data-active': activeImageSrc,
+                });
+
+                newDiv.append(image);
+                newDiv.attr('class', 'd-inline');
+                $('#gifs').append(newDiv);
+            }
 
         });
     }
 
-    $(document).on('click', '.btn-success',getGif)
+    $(document).on('click', '.movies', getGif)
 
     pageSet()
 
