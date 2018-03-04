@@ -9,11 +9,12 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
 
-        <script src='./assets/javascript/main.js'></script>
+    <script src='./assets/javascript/main.js'></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
-        <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Document</title>
 </head>
@@ -27,9 +28,16 @@
 
         <div class='row'>
 
-            <div class='col-sm-10' id='gifs'></div>
+            <div class='col-sm-9' id='gifs'></div>
 
-            <div class='col-sm-2' id='search'>
+            <div class='col-sm-3' id='search'>
+                <form>
+                    <div class="form-group">
+                        <label for="buttonCreate">Add a show!</label>
+                        <input type="text" class="form-control" id="addShowForm" placeholder="Enter show name here">
+                    </div>
+                    <button type="submit" class="btn btn-primary addShowButton">Submit</button>
+                </form>
             </div>
 
         </div>
